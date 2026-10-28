@@ -46,6 +46,9 @@ namespace TeachingDeviceManagement
 
             if (oldZone == newZone) return;
 
+            // Cảnh báo Warning được phát ra khi mức pin ở vùng nguy hiểm (< 30%).
+            // Hệ thống cố tình giữ cảnh báo cả ở chiều sạc tăng lên từ 0%, 
+            // vì mức pin này vẫn chưa đủ an toàn để đảm bảo duy trì trọn vẹn một ca dạy học liên tục.
             if (newZone == 0)
                 RaiseAlert("Pin micro đã hết (0%).", AlertSeverity.Critical);
             else if (newZone == 1)
@@ -61,6 +64,9 @@ namespace TeachingDeviceManagement
 
             if (oldZone == newZone) return;
 
+            // Phát cảnh báo Warning khi tín hiệu < 40%. Ngay cả khi tín hiệu 
+            // vừa phục hồi từ 0 (mất kết nối hoàn toàn) lên mức yếu, hệ thống vẫn cảnh báo 
+            // để giảng viên biết âm thanh lúc này có thể bị chập chờn, ảnh hưởng đến bài giảng.
             if (newZone == 0)
                 RaiseAlert("Micro mất tín hiệu (0%).", AlertSeverity.Critical);
             else if (newZone == 1)

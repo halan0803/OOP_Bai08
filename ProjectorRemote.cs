@@ -43,6 +43,10 @@ namespace TeachingDeviceManagement
             // Không cảnh báo lặp lại khi mức pin vẫn cùng vùng.
             if (oldZone == newZone) return;
 
+            // Hệ thống sẽ phát cảnh báo Warning ở vùng 1 (dưới 20%) trong cả 2 chiều:
+            // 1. Chiều giảm (đang dùng cạn dần): Nhắc nhở cần sạc.
+            // 2. Chiều tăng (sạc từ 0% lên < 20%): Nhắc nhở thiết bị vẫn ở ngưỡng nguy hiểm, 
+            //    nếu rút sạc mang đi dùng ngay thì vẫn có nguy cơ sập nguồn.
             if (newZone == 0)
                 RaiseAlert("Pin điều khiển máy chiếu đã hết (0%).", AlertSeverity.Critical);
             else if (newZone == 1)

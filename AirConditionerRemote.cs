@@ -38,7 +38,7 @@ namespace TeachingDeviceManagement
             if (!string.IsNullOrWhiteSpace(assignedRoom) && !IsCompatibleWith(assignedRoom))
                 throw new ArgumentException("Phòng được giao không nằm trong danh sách phòng tương thích.");
 
-            AssignedRoom = assignedRoom.Trim();
+            AssignedRoom = assignedRoom?.Trim() ?? string.Empty;
             IsResponsive = true;
         }
 
