@@ -185,7 +185,8 @@ namespace TeachingDeviceManagement
             Check("InvalidDeviceReadingException chứa đúng thông tin", correctProjectorException && correctMicException
                 && projector.BatteryLevel == 18 && mic.SignalQuality == 0);
 
-            Console.WriteLine($"\nKẾT QUẢ LAB W08: {passed}/{total} kiểm thử PASS.\n");
+            Console.WriteLine($"\nKẾT QUẢ: {passed}/{total} kiểm thử PASS.\n");
+            Console.WriteLine("=== KẾT THÚC KIỂM THỬ HỆ THỐNG QUẢN LÝ CÁC THIẾT BỊ TRONG PHÒNG DẠY ===\n");
         }
     }
 }
